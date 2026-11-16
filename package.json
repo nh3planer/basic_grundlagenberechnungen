@@ -1,0 +1,50 @@
+{
+  "name": "kostenabschaetzung",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "app": "npm run build && electron .",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "at.eckert.kostenabschaetzung",
+    "productName": "Kostenabschätzung",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "electron": "^33.4.11",
+    "electron-builder": "^26.18.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3",
+    "vite": "^7.3.4",
+    "vite-plugin-singlefile": "^2.3.4"
+  }
+}
