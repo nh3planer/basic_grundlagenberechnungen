@@ -1,5 +1,6 @@
 import { useStore } from "../store";
 import { VariantKey, VARIANT_KEYS } from "../types";
+import { Logo } from "./Logo";
 
 export default function ProjektTab() {
   const { project, update } = useStore();
@@ -50,6 +51,46 @@ export default function ProjektTab() {
             />
           </label>
         </div>
+      </div>
+
+      <div className="card">
+        <h2>Firmenlogo</h2>
+        <div className="toolbar">
+          <Logo size={44} />
+          <label className="ghost" style={{ display: "inline-block", cursor: "pointer" }}>
+            Logo-Bild hochladen…
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/svg+xml,image/webp"
+              style={{ display: "none" }}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = () => update((p) => void (p.logo = String(reader.result)));
+                reader.readAsDataURL(file);
+              }}
+            />
+          </label>
+          {project.logo && (
+            <button className="ghost" onClick={() => update((p) => void (p.logo = ""))}>
+              Logo entfernen
+            </button>
+          )}
+        </div>
+        <div className="grid2" style={{ maxWidth: 420 }}>
+          <label className="field">
+            <span>Kürzel-Logo (ohne Bild)</span>
+            <input
+              type="text"
+              value={project.logoKuerzel}
+              onChange={(e) => update((p) => void (p.logoKuerzel = e.target.value))}
+            />
+          </label>
+        </div>
+        <p className="hint">
+          Das Logo erscheint in der Kopfzeile der Software und auf jedem PDF-Ausdruck.
+        </p>
       </div>
 
       <div className="card">

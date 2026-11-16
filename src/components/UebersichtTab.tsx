@@ -1,6 +1,7 @@
 import { useStore } from "../store";
 import { groupSums, totalSums, kgSums, fmtEUR } from "./../calc";
 import { VARIANT_KEYS, VariantKey, Group } from "../types";
+import { PrintHeader } from "./Logo";
 
 export default function UebersichtTab() {
   const { project, update } = useStore();
@@ -48,13 +49,7 @@ export default function UebersichtTab() {
             </select>
           </label>
         </div>
-        <div className="print-only">
-          <h2>Kostenberechnung – Entwurf</h2>
-          <p>
-            {project.firma}, {project.adresse} · Projekt: {project.projekt} · {project.bearbeiter} /{" "}
-            {project.stand}
-          </p>
-        </div>
+        <PrintHeader titel="Kostenberechnung – Entwurf" />
         <div style={{ overflowX: "auto" }}>
           <table className="data">
             <thead>

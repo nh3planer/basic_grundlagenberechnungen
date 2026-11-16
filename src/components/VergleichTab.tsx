@@ -1,6 +1,7 @@
 import { useStore } from "../store";
 import { groupSums, totalSums, fmtEUR } from "../calc";
 import { VARIANT_KEYS } from "../types";
+import { PrintHeader } from "./Logo";
 
 export default function VergleichTab() {
   const { project } = useStore();
@@ -39,9 +40,7 @@ export default function VergleichTab() {
 
       <div className="card">
         <h2>Variantenvergleich je Gruppe (BT)</h2>
-        <div className="print-only">
-          <h2>Variantenvergleich – {project.projekt}</h2>
-        </div>
+        <PrintHeader titel="Variantenvergleich" />
         <div style={{ overflowX: "auto" }}>
           <table className="data">
             <thead>

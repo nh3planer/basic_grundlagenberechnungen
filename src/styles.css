@@ -114,10 +114,23 @@ table.data tr.chapter td { background: var(--accent-soft); font-weight: 700; }
 
 .print-only { display: none; }
 
+.print-kopf {
+  display: none;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 2px solid #10233f;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+.print-kopf-links { display: flex; align-items: center; gap: 10px; }
+.print-kopf-rechts { text-align: right; font-size: 11px; }
+
 @media print {
   body { background: #fff; font-size: 11px; }
   .tabs, .toolbar, .topbar, button, .no-print { display: none !important; }
   .print-only { display: block; }
+  .print-kopf { display: flex; }
   .main { padding: 0; max-width: none; }
   .card { border: none; box-shadow: none; padding: 0; page-break-inside: avoid; }
   .pos-table input, .pos-table select { border: none; padding: 0; background: none; -webkit-appearance: none; appearance: none; }

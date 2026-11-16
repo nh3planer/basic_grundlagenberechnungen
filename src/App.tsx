@@ -7,6 +7,7 @@ import PositionenTab from "./components/PositionenTab";
 import UebersichtTab from "./components/UebersichtTab";
 import VergleichTab from "./components/VergleichTab";
 import DatenTab from "./components/DatenTab";
+import { Logo } from "./components/Logo";
 
 const TABS = [
   { id: "uebersicht", label: "Übersicht (SUM_Entwurf)" },
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="logo">KOSTEN</div>
+        <Logo size={36} />
         <div className="meta">
           <div className="projekt">{project.projekt || "Neues Projekt"}</div>
           <div className="sub">

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useStore } from "../store";
 import { Position, VariantKey, VARIANT_KEYS, emptyPosition } from "../types";
 import { ep, gp, roundTo, fmtEUR, istKalkulationszeile } from "../calc";
+import { PrintHeader } from "./Logo";
 
 function sortPos(a: Position, b: Position) {
   return a.nr - b.nr || a.ebene - b.ebene || a.unternr - b.unternr;
@@ -102,12 +103,7 @@ export default function PositionenTab() {
       </div>
 
       <div className="card">
-        <div className="print-only">
-          <h2>{project.projekt} – Berechnungsblatt (POS)</h2>
-          <p>
-            {project.firma} · {project.bearbeiter} / {project.stand}
-          </p>
-        </div>
+        <PrintHeader titel="Berechnungsblatt (POS)" />
         <div style={{ overflowX: "auto" }}>
           <table className="data pos-table">
             <thead>

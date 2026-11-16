@@ -35,6 +35,8 @@ export interface Group {
 export interface Project {
   firma: string;
   adresse: string;
+  logo: string;
+  logoKuerzel: string;
   projekt: string;
   bearbeiter: string;
   stand: string;
@@ -80,6 +82,8 @@ export function defaultProject(): Project {
   return {
     firma: "Eckert & Partner beratende Ingenieure GmbH",
     adresse: "Adamgasse 21, 6120 Innsbruck",
+    logo: "",
+    logoKuerzel: "E&P",
     projekt: "",
     bearbeiter: "",
     stand: today,
