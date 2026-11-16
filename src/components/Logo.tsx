@@ -1,4 +1,5 @@
 import { useStore } from "../store";
+import epLogo from "../assets/ep-logo.png?inline";
 
 export function Logo({ size = 34 }: { size?: number }) {
   const { project } = useStore();
@@ -12,24 +13,11 @@ export function Logo({ size = 34 }: { size?: number }) {
     );
   }
   return (
-    <div
-      style={{
-        height: size,
-        minWidth: size,
-        padding: "0 8px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#1a5fb4",
-        color: "#fff",
-        fontWeight: 700,
-        fontSize: size * 0.4,
-        borderRadius: size * 0.22,
-        letterSpacing: 0.5,
-      }}
-    >
-      {project.logoKuerzel || "Logo"}
-    </div>
+    <img
+      src={epLogo}
+      alt={project.firma}
+      style={{ height: size, maxWidth: size * 5, objectFit: "contain" }}
+    />
   );
 }
 

@@ -74,22 +74,14 @@ export default function ProjektTab() {
           </label>
           {project.logo && (
             <button className="ghost" onClick={() => update((p) => void (p.logo = ""))}>
-              Logo entfernen
+              Standard-Logo wiederherstellen
             </button>
           )}
         </div>
-        <div className="grid2" style={{ maxWidth: 420 }}>
-          <label className="field">
-            <span>Kürzel-Logo (ohne Bild)</span>
-            <input
-              type="text"
-              value={project.logoKuerzel}
-              onChange={(e) => update((p) => void (p.logoKuerzel = e.target.value))}
-            />
-          </label>
-        </div>
         <p className="hint">
-          Das Logo erscheint in der Kopfzeile der Software und auf jedem PDF-Ausdruck.
+          Standardmäßig wird die EP-Bildmarke angezeigt. Ein hochgeladenes Logo ersetzt sie in der
+          Kopfzeile der Software und auf jedem PDF-Ausdruck; mit „Standard-Logo wiederherstellen"
+          kehrst du zur Bildmarke zurück.
         </p>
       </div>
 
